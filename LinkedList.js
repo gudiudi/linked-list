@@ -81,13 +81,25 @@ export default class LinkedList {
 		return lastNode;
 	}
 
-	contains(value) {
+	#search(value) {
 		let currentNode = this.#head;
+		let index = 0;
 		while (currentNode !== null) {
-			if (currentNode.value === value) return true;
+			if (currentNode.value === value) return { found: true, index };
 			currentNode = currentNode.nextNode;
+			index++;
 		}
 
-		return false;
+		return { found: false };
+	}
+
+	contains(value) {
+		const search = this.#search(value);
+		return search.found;
+	}
+
+	find(value) {
+		const search = this.#search(value);
+		return search.found ? search.index : null;
 	}
 }

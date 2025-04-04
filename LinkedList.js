@@ -49,17 +49,14 @@ export default class LinkedList {
 	}
 
 	at(index) {
-		if (index < 0 || index > this.#size - 1) return -1;
+		if (index < 0 || index > this.#size - 1) return null;
 
 		let current = this.#head;
-		let currentIndex = 0;
-		while (current !== null) {
-			if (currentIndex === index) return current;
-			currentIndex++;
+		for (let i = 0; i < index; i++) {
 			current = current.nextNode;
 		}
 
-		return -1;
+		return current;
 	}
 
 	pop() {}

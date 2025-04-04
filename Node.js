@@ -22,4 +22,11 @@ export default class Node {
 	set nextNode(newNextNode) {
 		this.#nextNode = newNextNode;
 	}
+
+	toJSON() {
+		return {
+			value: this.#value,
+			nextNode: this.#nextNode ? this.#nextNode.toJSON() : null,
+		};
+	}
 }

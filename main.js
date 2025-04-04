@@ -8,6 +8,6 @@ list.append("fish");
 list.prepend("parrot");
 
 console.log(list.size);
-console.log(list.head);
-console.log(list.tail.value);
-console.log(list.at(0).value);
+console.log(JSON.stringify(list.head.toJSON(), null, 2));
+console.log(JSON.stringify(list.tail.toJSON(), null, 2));
+console.log(list.at(4));

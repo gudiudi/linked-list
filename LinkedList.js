@@ -102,4 +102,15 @@ export default class LinkedList {
 		const search = this.#search(value);
 		return search.found ? search.index : null;
 	}
+
+	toString() {
+		let result = "";
+		let currentNode = this.#head;
+		while (currentNode !== null) {
+			result += `(${currentNode.value}) -> `;
+			currentNode = currentNode.nextNode;
+		}
+
+		return `${result}${currentNode}`;
+	}
 }

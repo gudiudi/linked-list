@@ -15,5 +15,4 @@ console.log(JSON.stringify(list.tail?.toJSON() || null, null, 2));
 console.log(list.at(4));
 */
 
-list.pop();
-console.log(JSON.stringify(list.head?.toJSON() || null, null, 2));
+console.log(list.contains("dog"));

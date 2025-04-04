@@ -51,13 +51,33 @@ export default class LinkedList {
 	at(index) {
 		if (index < 0 || index > this.#size - 1) return null;
 
-		let current = this.#head;
+		let currentNode = this.#head;
 		for (let i = 0; i < index; i++) {
-			current = current.nextNode;
+			currentNode = currentNode.nextNode;
 		}
 
-		return current;
+		return currentNode;
 	}
 
-	pop() {}
+	pop() {
+		if (this.#size === 0) return null;
+
+		const lastNode = this.#tail;
+
+		if (this.#head === this.#tail) {
+			this.#head = null;
+			this.#tail = null;
+		} else {
+			let currentNode = this.#head;
+			while (currentNode.nextNode !== lastNode) {
+				currentNode = currentNode.nextNode;
+			}
+
+			currentNode.nextNode = null;
+			this.#tail = currentNode;
+		}
+
+		this.#size--;
+		return lastNode;
+	}
 }

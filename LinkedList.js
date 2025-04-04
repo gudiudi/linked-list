@@ -40,17 +40,17 @@ export default class LinkedList {
 	}
 
 	head() {
-		return this.#head.value;
+		return this.#head;
 	}
 
 	tail() {
 		let current = this.#head;
 		while (current !== null) {
-			if (current.nextNode === null) return current.value;
+			if (current.nextNode === null) return current;
 			current = current.nextNode;
 		}
 
-		return this.#head.value;
+		return this.#head;
 	}
 
 	at(index) {
@@ -59,11 +59,13 @@ export default class LinkedList {
 		let current = this.#head;
 		let currentIndex = 0;
 		while (current !== null) {
-			if (currentIndex === index) return current.value;
+			if (currentIndex === index) return current;
 			currentIndex++;
 			current = current.nextNode;
 		}
 
 		return -1;
 	}
+
+	pop() {}
 }

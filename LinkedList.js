@@ -2,11 +2,25 @@ import Node from "./Node.js";
 
 export default class LinkedList {
 	#head;
+	#tail;
 	#size;
 
 	constructor() {
 		this.#head = null;
+		this.#tail = null;
 		this.#size = 0;
+	}
+
+	get head() {
+		return this.#head;
+	}
+
+	get tail() {
+		return this.#tail;
+	}
+
+	get size() {
+		return this.#size;
 	}
 
 	append(value) {
@@ -16,15 +30,12 @@ export default class LinkedList {
 
 		if (!this.#head) {
 			this.#head = node;
+			this.#tail = node;
 			return;
 		}
 
-		let current = this.#head;
-		while (current.nextNode !== null) {
-			current = current.nextNode;
-		}
-
-		current.nextNode = node;
+		this.#tail.nextNode = node;
+		this.#tail = node;
 	}
 
 	prepend(value) {
@@ -33,28 +44,12 @@ export default class LinkedList {
 		const node = new Node(value, this.#head);
 
 		this.#head = node;
-	}
 
-	size() {
-		return this.#size;
-	}
-
-	head() {
-		return this.#head;
-	}
-
-	tail() {
-		let current = this.#head;
-		while (current !== null) {
-			if (current.nextNode === null) return current;
-			current = current.nextNode;
-		}
-
-		return this.#head;
+		if (!this.#tail) this.#tail = node;
 	}
 
 	at(index) {
-		if (index < 0 || index > this.size() - 1) return -1;
+		if (index < 0 || index > this.#size - 1) return -1;
 
 		let current = this.#head;
 		let currentIndex = 0;

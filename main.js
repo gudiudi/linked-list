@@ -7,7 +7,7 @@ list.append("cat");
 list.append("fish");
 list.prepend("parrot");
 
-console.log(list.size());
-console.log(list.head());
-console.log(list.tail());
+console.log(list.size);
+console.log(list.head);
+console.log(list.tail.value);
 console.log(list.at(4));

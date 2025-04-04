@@ -113,4 +113,24 @@ export default class LinkedList {
 
 		return `${result}${currentNode}`;
 	}
+
+	insertAt(value, index) {
+		if (index < 0 || index > this.#size) return null;
+
+		if (index === 0) {
+			this.prepend(value);
+			return;
+		}
+
+		if (index === this.#size) {
+			this.append(value);
+			return;
+		}
+
+		const newNode = new Node(value);
+		const prevNode = this.at(index - 1);
+		newNode.nextNode = prevNode.nextNode;
+		prevNode.nextNode = newNode;
+		this.#size++;
+	}
 }

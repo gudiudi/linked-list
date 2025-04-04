@@ -24,6 +24,17 @@ export default class LinkedList {
 	}
 
 	head() {
-		return this.#head;
+		return this.#head.value;
+	}
+
+	tail() {
+		let current = this.#head;
+
+		while (current !== null) {
+			if (current.nextNode === null) return current.value;
+			current = current.nextNode;
+		}
+
+		return this.#head.value;
 	}
 }

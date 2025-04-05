@@ -18,8 +18,14 @@ console.log(list.find("fish"));
 console.log(list.toString());
 */
 
+/*
 list.insertAt("elephant", 0);
 console.log(JSON.stringify(list.head?.toJSON() || null, null, 2));
 console.log(list.size);
-console.log(list.contains("elephant"));
-console.log(list.find("elephant"));
+console.log(JSON.stringify(list.removeAt(3)?.toJSON() || null, null, 2));
+console.log(JSON.stringify(list.head?.toJSON() || null, null, 2));
+console.log(list.size);
+*/
+
+console.log(JSON.stringify(list.removeAt(0)?.toJSON() || null, null, 2));
+console.log(JSON.stringify(list.head?.toJSON() || null, null, 2));
